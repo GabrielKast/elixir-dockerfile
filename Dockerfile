@@ -17,6 +17,11 @@
 #  docker run --rm -t -i phusion/baseimage:<VERSION> /sbin/my_init -- bash -l
 #
 # Thanks to @hqmq_ for the heads up
+
+# my own version to use with the Bruce Tate Book
+# To build : docker build -t elixir_4me .
+# To run : docker run --rm -v /workdir -t -i elixir_4me /sbin/my_init -- bash -l
+
 FROM phusion/baseimage:0.9.16
 MAINTAINER Nizar Venturini @trenpixster
 
@@ -86,3 +91,5 @@ RUN /usr/local/bin/mix local.hex --force && \
     /usr/local/bin/mix local.rebar --force
 
 WORKDIR /
+
+RUN apt-get update && apt-get install -y emacs24 erlang-mode
